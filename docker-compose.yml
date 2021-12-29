@@ -1,0 +1,28 @@
+version: "3" 
+
+services:
+  python36gd:
+    # 镜像
+    image: "python:36gd"
+    # 主机名
+    hostname: python36gd
+    # 容器名
+    container_name: python36gd
+    # 挂载共享目录[项目目录及初始化sh]
+    volumes:
+      - /Users/zyz/wwwroot:/home/wwwroot
+      - ./sh/init.sh:/home/wwwroot/sh/init.sh
+    # 端口映射[ssh端口]
+    ports:
+      - "10022:22"
+    # 时区
+    environment:
+      - TZ=Asia/Shanghai
+    # 启动命令
+    command: /bin/bash -c "chmod 755 /home/wwwroot/sh/init.sh && /home/wwwroot/sh/init.sh"
+    # 网络模式
+    network_mode: bridge
+    # 自动重启
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
