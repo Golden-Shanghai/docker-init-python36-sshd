@@ -17,6 +17,7 @@ vi docker-compose.yml
 
 # 修改启动初始化需要执行的命令（若需要）
 vi sh/init.sh
+vi sh/init.py
 
 # 运行自动构建脚本
 ./sh/auto_build.sh
