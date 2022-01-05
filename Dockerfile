@@ -20,5 +20,14 @@ RUN useradd admin
 RUN echo "admin:admin" | chpasswd
 RUN echo "admin  ALL=(ALL)    ALL" >> /etc/sudoers
 
+RUN apt-get update
+# 装sals 
+RUN apt-get install -y sasl2-bin
+RUN apt-get install -y python-dev libsasl2-dev gcc
+# 装kerberos
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get install -y krb5-user libpam-krb5
+
 # 开放端口[ssh]
 EXPOSE 22
+
