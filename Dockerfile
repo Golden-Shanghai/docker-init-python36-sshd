@@ -23,6 +23,7 @@ RUN echo "admin  ALL=(ALL)    ALL" >> /etc/sudoers
 RUN apt-get update
 # 装sals 
 RUN apt-get install -y sasl2-bin
+RUN apt install libsasl2-modules-gssapi-heimdal
 RUN apt-get install -y python-dev libsasl2-dev gcc
 # 装kerberos
 ENV DEBIAN_FRONTEND=noninteractive
