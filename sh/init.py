@@ -29,6 +29,8 @@ if path.exists():
 
 os.system(cmd)
 
+os.system('kinit -kt /etc/security/hive.keytab hive')
+
 # 启动sshd服务
 os.system('/usr/sbin/sshd && /usr/sbin/sshd -D')
 
